@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: marketplace
+  datasource:
+    url: jdbc:mariadb://localhost:3306/market
+    username: root
+    password:
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.MariaDBDialect
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create-drop
