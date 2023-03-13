@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @Service
 public class UsuarioServicio {
 
@@ -22,5 +24,9 @@ public class UsuarioServicio {
     public Usuario crearUsuario(UsuarioDTO usuarioDTO) {
         Usuario usuario = mapper.map(usuarioDTO);
         return this.repositorio.save(usuario);
+    }
+
+    public List<Usuario> listarUsuarios(){
+        return this.repositorio.findAll();
     }
 }
