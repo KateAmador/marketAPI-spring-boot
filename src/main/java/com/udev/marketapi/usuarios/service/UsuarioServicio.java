@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UsuarioServicio {
@@ -28,5 +29,9 @@ public class UsuarioServicio {
 
     public List<Usuario> listarUsuarios(){
         return this.repositorio.findAll();
+    }
+
+    public Optional<Usuario> buscarUsuario(Long id) {
+        return repositorio.findById(id);
     }
 }

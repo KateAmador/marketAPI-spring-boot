@@ -6,6 +6,7 @@ import com.udev.marketapi.usuarios.service.UsuarioServicio;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -26,4 +27,10 @@ public class UsuarioControlador {
     public List<Usuario> listarUsuarios(){
         return this.usuarioServicio.listarUsuarios();
     }
+
+    @GetMapping("/{id}")
+    public Optional<Usuario> buscarPorId(@PathVariable("id") Long id) {
+        return this.usuarioServicio.buscarUsuario(id);
+    }
+
 }
