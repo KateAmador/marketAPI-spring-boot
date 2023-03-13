@@ -32,4 +32,9 @@ public class ProductoControlador {
     public Optional<Producto> buscarProducto(@PathVariable("id") Long id){
         return this.productoServicio.buscarProducto(id);
     }
+
+    @PutMapping("/{id}")
+    public Producto actualizarProducto(@PathVariable("id") Long id, @RequestBody ProductoDTO productoDTO){
+        return this.productoServicio.actualizarProducto(id, productoDTO);
+    }
 }

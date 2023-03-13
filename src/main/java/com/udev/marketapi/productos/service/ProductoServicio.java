@@ -32,4 +32,17 @@ public class ProductoServicio {
     public Optional<Producto> buscarProducto(Long id){
         return this.repositorio.findById(id);
     }
+
+    public Producto actualizarProducto(Long id, ProductoDTO productoDTO){
+        Producto producto = repositorio.findById(id).orElseThrow(() -> new IllegalArgumentException("ID inválido"));
+        producto.setNombre(productoDTO.getNombre());
+        producto.setCosto(productoDTO.getCosto());
+        producto.setPrecio(productoDTO.getPrecio());
+        producto.setObservacion(productoDTO.getObservacion());
+        producto.setCantidad(producto.getCantidad());
+        producto.setCaracteristicas(producto.getCaracteristicas());
+        producto.setDescuento(productoDTO.getDescuento());
+        producto.setDescripcion(producto.getDescripcion());
+        return repositorio.save(producto);
+    }
 }
