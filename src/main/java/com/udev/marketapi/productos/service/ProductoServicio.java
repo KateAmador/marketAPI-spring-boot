@@ -6,6 +6,9 @@ import com.udev.marketapi.productos.model.Producto;
 import com.udev.marketapi.productos.repository.ProductoRepositorio;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class ProductoServicio {
 
@@ -20,5 +23,13 @@ public class ProductoServicio {
     public Producto crearProducto(ProductoDTO productoDTO){
         Producto producto = mapper.map(productoDTO);
         return this.repositorio.save(producto);
+    }
+
+    public List<Producto> listarProducto(){
+        return this.repositorio.findAll();
+    }
+
+    public Optional<Producto> buscarProducto(Long id){
+        return this.repositorio.findById(id);
     }
 }

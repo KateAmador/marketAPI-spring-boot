@@ -3,10 +3,10 @@ package com.udev.marketapi.productos.controller;
 import com.udev.marketapi.productos.dto.ProductoDTO;
 import com.udev.marketapi.productos.model.Producto;
 import com.udev.marketapi.productos.service.ProductoServicio;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/productos")
@@ -21,5 +21,15 @@ public class ProductoControlador {
     @PostMapping
     public Producto crearProducto(@RequestBody ProductoDTO productoDTO){
         return this.productoServicio.crearProducto(productoDTO);
+    }
+
+    @GetMapping
+    public List<Producto> listarProducto(){
+        return  this.productoServicio.listarProducto();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Producto> buscarProducto(@PathVariable("id") Long id){
+        return this.productoServicio.buscarProducto(id);
     }
 }
