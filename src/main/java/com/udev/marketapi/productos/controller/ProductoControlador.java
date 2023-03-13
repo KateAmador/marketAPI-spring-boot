@@ -3,6 +3,7 @@ package com.udev.marketapi.productos.controller;
 import com.udev.marketapi.productos.dto.ProductoDTO;
 import com.udev.marketapi.productos.model.Producto;
 import com.udev.marketapi.productos.service.ProductoServicio;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,5 +37,11 @@ public class ProductoControlador {
     @PutMapping("/{id}")
     public Producto actualizarProducto(@PathVariable("id") Long id, @RequestBody ProductoDTO productoDTO){
         return this.productoServicio.actualizarProducto(id, productoDTO);
+    }
+
+    @PatchMapping("/desactivar/{id}")
+    public ResponseEntity<Void> actualizarEstadoUsuario(@PathVariable("id") Long id){
+        this.productoServicio.actualizarEstadoProducto(id);
+        return ResponseEntity.noContent().build();
     }
 }

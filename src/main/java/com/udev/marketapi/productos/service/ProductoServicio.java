@@ -4,6 +4,8 @@ import com.udev.marketapi.productos.dto.ProductoDTO;
 import com.udev.marketapi.productos.mapper.ProductoDTOAProducto;
 import com.udev.marketapi.productos.model.Producto;
 import com.udev.marketapi.productos.repository.ProductoRepositorio;
+import com.udev.marketapi.usuarios.modelo.Usuario;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -44,5 +46,11 @@ public class ProductoServicio {
         producto.setDescuento(productoDTO.getDescuento());
         producto.setDescripcion(producto.getDescripcion());
         return repositorio.save(producto);
+    }
+
+    @Transactional
+    public void actualizarEstadoProducto(Long id){
+        Optional<Producto> optionalProducto= this.repositorio.findById(id);
+        this.repositorio.productoDesactivado(id);
     }
 }
