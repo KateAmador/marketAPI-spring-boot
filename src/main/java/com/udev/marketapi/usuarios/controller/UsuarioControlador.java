@@ -33,4 +33,8 @@ public class UsuarioControlador {
         return this.usuarioServicio.buscarUsuario(id);
     }
 
+    @PutMapping("/{id}")
+    public Usuario actualizarUsuario(@PathVariable("id") Long id, @RequestBody UsuarioDTO usuarioDTO) {
+        return this.usuarioServicio.actualizarUsuario(id, usuarioDTO);
+    }
 }
