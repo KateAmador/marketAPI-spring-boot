@@ -4,6 +4,7 @@ import com.udev.marketapi.usuarios.dto.UsuarioDTO;
 import com.udev.marketapi.usuarios.mapper.UsuarioDTOAUsuriao;
 import com.udev.marketapi.usuarios.modelo.Usuario;
 import com.udev.marketapi.usuarios.repository.UsuarioRepositorio;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,5 +44,11 @@ public class UsuarioServicio {
         usuario.setEmail(usuarioDTO.getEmail());
         usuario.setContraseña(usuarioDTO.getContraseña());
         return repositorio.save(usuario);
+    }
+
+    @Transactional
+    public void actualizarEstadoUsuario(Long id){
+    Optional<Usuario> optionalUsuario= this.repositorio.findById(id);
+    this.repositorio.usuarioDesactivado(id);
     }
 }

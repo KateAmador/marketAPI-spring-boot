@@ -3,6 +3,7 @@ package com.udev.marketapi.usuarios.controller;
 import com.udev.marketapi.usuarios.dto.UsuarioDTO;
 import com.udev.marketapi.usuarios.modelo.Usuario;
 import com.udev.marketapi.usuarios.service.UsuarioServicio;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,5 +37,11 @@ public class UsuarioControlador {
     @PutMapping("/{id}")
     public Usuario actualizarUsuario(@PathVariable("id") Long id, @RequestBody UsuarioDTO usuarioDTO) {
         return this.usuarioServicio.actualizarUsuario(id, usuarioDTO);
+    }
+
+    @PatchMapping("/desactivar/{id}")
+    public ResponseEntity<Void> actualizarEstadoUsuario(@PathVariable("id") Long id){
+        this.usuarioServicio.actualizarEstadoUsuario(id);
+        return ResponseEntity.noContent().build();
     }
 }
