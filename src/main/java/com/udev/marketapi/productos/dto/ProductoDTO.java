@@ -1,5 +1,6 @@
 package com.udev.marketapi.productos.dto;
 
+import com.udev.marketapi.categorias.model.Categoria;
 import lombok.Data;
 
 @Data
@@ -15,4 +16,5 @@ public class ProductoDTO {
     private String caracteristicas;
     private int descuento;
     private String descripcion;
+    private Categoria categoria;
 }

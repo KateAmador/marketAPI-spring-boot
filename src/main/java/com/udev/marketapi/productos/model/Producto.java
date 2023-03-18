@@ -1,5 +1,7 @@
 package com.udev.marketapi.productos.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.udev.marketapi.categorias.model.Categoria;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -12,12 +14,15 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     //foranea proveedor
-    //foranea categoria
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "categoria_id")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Categoria categoria;
     private String nombre;
     private int costo;
     private int precio;
     private String observacion;
-    private boolean estadoProducto;
+    private boolean estado;
     private int cantidad;
     @Lob
     private byte[] imagen;

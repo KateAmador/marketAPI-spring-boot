@@ -9,6 +9,6 @@ import org.springframework.data.repository.query.Param;
 public interface ProductoRepositorio extends JpaRepository<Producto, Long> {
 
     @Modifying
-    @Query(value = "UPDATE productos SET estado_producto = FALSE WHERE ID=:id", nativeQuery = true)
+    @Query(value = "UPDATE productos SET estado = FALSE WHERE ID=:id", nativeQuery = true)
     void productoDesactivado(@Param("id")Long id);
 }

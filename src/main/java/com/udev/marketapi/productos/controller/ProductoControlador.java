@@ -39,7 +39,7 @@ public class ProductoControlador {
         return this.productoServicio.actualizarProducto(id, productoDTO);
     }
 
-    @PatchMapping("/desactivar/{id}")
+    @PatchMapping("/{id}")
     public ResponseEntity<Void> actualizarEstadoUsuario(@PathVariable("id") Long id){
         this.productoServicio.actualizarEstadoProducto(id);
         return ResponseEntity.noContent().build();

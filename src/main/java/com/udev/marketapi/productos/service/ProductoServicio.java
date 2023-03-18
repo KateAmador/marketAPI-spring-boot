@@ -4,7 +4,6 @@ import com.udev.marketapi.productos.dto.ProductoDTO;
 import com.udev.marketapi.productos.mapper.ProductoDTOAProducto;
 import com.udev.marketapi.productos.model.Producto;
 import com.udev.marketapi.productos.repository.ProductoRepositorio;
-import com.udev.marketapi.usuarios.modelo.Usuario;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -41,10 +40,10 @@ public class ProductoServicio {
         producto.setCosto(productoDTO.getCosto());
         producto.setPrecio(productoDTO.getPrecio());
         producto.setObservacion(productoDTO.getObservacion());
-        producto.setCantidad(producto.getCantidad());
-        producto.setCaracteristicas(producto.getCaracteristicas());
+        producto.setCantidad(productoDTO.getCantidad());
+        producto.setCaracteristicas(productoDTO.getCaracteristicas());
         producto.setDescuento(productoDTO.getDescuento());
-        producto.setDescripcion(producto.getDescripcion());
+        producto.setDescripcion(productoDTO.getDescripcion());
         return repositorio.save(producto);
     }
 

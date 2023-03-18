@@ -15,12 +15,13 @@ public class ProductoDTOAProducto implements IMapper<ProductoDTO, Producto> {
         producto.setCosto(in.getCosto());
         producto.setPrecio(in.getPrecio());
         producto.setObservacion(in.getObservacion());
-        producto.setEstadoProducto(true);
+        producto.setEstado(true);
         producto.setCantidad(in.getCantidad());
         //producto.setImagen(in.getImagen());
         producto.setCaracteristicas(in.getCaracteristicas());
         producto.setDescuento(in.getDescuento());
         producto.setDescripcion(in.getDescripcion());
+        producto.setCategoria(in.getCategoria());
         return producto;
     }
 }
