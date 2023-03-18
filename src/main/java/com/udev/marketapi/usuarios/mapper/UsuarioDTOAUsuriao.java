@@ -20,7 +20,7 @@ public class UsuarioDTOAUsuriao implements IMapper<UsuarioDTO, Usuario> {
         usuario.setEmail(in.getEmail());
         usuario.setContraseña(in.getContraseña());
         usuario.setTipoUsuario(TipoUsuarios.CLIENTE);
-        usuario.setEstadoUsuario(true);
+        usuario.setEstado(true);
         //usuario.setUltimoIngreso(String.valueOf(new Date()));
         usuario.setFechaRegistro(LocalDateTime.now());
         return usuario;

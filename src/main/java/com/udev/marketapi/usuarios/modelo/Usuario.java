@@ -19,7 +19,7 @@ public class Usuario {
     private String email;
     private String contraseña;
     private TipoUsuarios tipoUsuario;
-    private boolean estadoUsuario;
+    private boolean estado;
     private String ultimoIngreso;
     private LocalDateTime fechaRegistro;
 
