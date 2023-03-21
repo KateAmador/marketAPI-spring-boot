@@ -18,6 +18,7 @@ public class Usuario {
     private String telefono;
     private String email;
     private String contraseña;
+    @Enumerated(EnumType.STRING)
     private TipoUsuarios tipoUsuario;
     private boolean estado;
     private String ultimoIngreso;
