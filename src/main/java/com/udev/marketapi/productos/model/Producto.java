@@ -1,9 +1,13 @@
 package com.udev.marketapi.productos.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.udev.marketapi.categorias.model.Categoria;
+import com.udev.marketapi.entradas.model.Entrada;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -29,4 +33,8 @@ public class Producto {
     private String caracteristicas;
     private int descuento;
     private String descripcion;
+
+    @OneToMany(mappedBy = "producto")
+    @JsonIgnoreProperties("producto")
+    private List<Entrada> entradas;
 }
